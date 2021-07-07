@@ -10,12 +10,12 @@ public class User {
     private String email;
     private String senha;
     private int telefone;
-    private String dataNasc;
+    private Date dataNasc;
     private String genero;
     private List<Pets> pet;
     private Endereco end;
 
-    public User(int idUser, String nome, int cpf, String email, String senha, int telefone, String dataNasc, String genero, List<Pets> pet, Endereco end) {
+    public User(int idUser, String nome, int cpf, String email, String senha, int telefone, Date dataNasc, String genero, List<Pets> pet, Endereco end) {
         this.idUser = idUser;
         this.nome = nome;
         this.cpf = cpf;
@@ -24,7 +24,6 @@ public class User {
         this.telefone = telefone;
         this.dataNasc = dataNasc;
         this.genero = genero;
-        this.pet = pet;
         this.end = end;
     }
 
