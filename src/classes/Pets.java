@@ -8,38 +8,46 @@ public abstract class Pets  {
     private String tipo;
     private String imagem;
     private String genero;
-    private boolean status_A;
-    private boolean status_P;
+    private String status;
     private String porte;
     private String localP;
     private String localA;
     private String dataA;
 
-    public Pets(int idPets, String nome, String tipo, String imagem, String genero, boolean status_A, boolean status_P, String porte, String localP, String localA, String dataA) {
+    public Pets(int idPets, String nome, String tipo, String imagem, String genero, String status, String porte, String localP, String localA, String dataA) {
         this.idPets = idPets;
         this.nome = nome;
         this.tipo = tipo;
         this.imagem = imagem;
         this.genero = genero;
-        this.status_A = status_A;
-        this.status_P = status_P;
+        this.status = status;
         this.porte = porte;
         this.localP = localP;
         this.localA = localA;
         this.dataA = dataA;
     }
 
+    @Override
+    public String toString() {
+        return "Pets{" +
+                "idPets=" + idPets +
+                ", nome='" + nome + '\'' +
+                ", tipo='" + tipo + '\'' +
+                ", imagem='" + imagem + '\'' +
+                ", genero='" + genero + '\'' +
+                ", status='" + status + '\'' +
+                ", porte='" + porte + '\'' +
+                ", localP='" + localP + '\'' +
+                ", localA='" + localA + '\'' +
+                ", dataA='" + dataA + '\'' +
+                '}';
+    }
+
     public void verifica_tipo(){
         return;
     }
 
-    public void verificar_statusA(){
-        return;
-    }
-
-    public void verificar_statusP(){
-        return;
-    }
+    public void verificar_status(){return;}
 
     public int getIdPets() {
         return idPets;
@@ -61,12 +69,8 @@ public abstract class Pets  {
         return genero;
     }
 
-    public boolean isStatus_A() {
-        return status_A;
-    }
-
-    public boolean isStatus_P() {
-        return status_P;
+    public String getStatus() {
+        return status;
     }
 
     public String getPorte() {
@@ -97,12 +101,12 @@ public abstract class Pets  {
         this.genero = genero;
     }
 
-    public void setStatus_A(boolean status_A) {
-        this.status_A = status_A;
+    public void setPorte(String porte) {
+        this.porte = porte;
     }
 
-    public void setStatus_P(boolean status_P) {
-        this.status_P = status_P;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public void setLocalP(String localP) {

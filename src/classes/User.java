@@ -1,7 +1,9 @@
 package classes;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 public class User {
     private int idUser;
@@ -12,10 +14,10 @@ public class User {
     private int telefone;
     private Date dataNasc;
     private String genero;
-    private List<Pets> pet;
+    private List<Pets> listapets;
     private Endereco end;
 
-    public User(int idUser, String nome, int cpf, String email, String senha, int telefone, Date dataNasc, String genero, List<Pets> pet, Endereco end) {
+    public User(int idUser, String nome, int cpf, String email, String senha, int telefone, Date dataNasc, String genero,Endereco end) {
         this.idUser = idUser;
         this.nome = nome;
         this.cpf = cpf;
@@ -24,43 +26,46 @@ public class User {
         this.telefone = telefone;
         this.dataNasc = dataNasc;
         this.genero = genero;
+        this.listapets = new ArrayList<>();
         this.end = end;
     }
 
-    public List<Pets> getPet() {
-        return pet;
+    public void addPet(Pets pet){
+        listapets.add(pet);
     }
 
-    public void verifica_encontrou(){
-        return;
+    public void deletePet(int id){
+        listapets.remove(id);
     }
 
-    public void adicionar(User u){
-        return;
+    public void verListaPets(){
+        for(Pets valor: listapets){
+            System.out.println(listapets);
+        }
     }
 
-    public void alterar(User u){
-        return;
-    }
+    public void alterPet(Pets pet){
+        Scanner scanner = new Scanner(System.in);
 
-    public void excluir(User u){
-        return;
-    }
-
-    public void adicionarPet(User u){
-        return;
-    }
-
-    public void alterarPet(User u){
-        return;
-    }
-
-    public void excluirPet(User u){
-        return;
-    }
-
-    public Endereco getEnd() {
-        return end;
+        System.out.println("O que você deseja alterar ? ");
+        System.out.println("1-Nome");
+        System.out.println("2-Gênero");
+        System.out.println("3-Porte");
+        int opcao = scanner.nextInt();
+        switch (opcao){
+            case 1:
+                System.out.println("O nome atual do pet é " + pet.getNome() + ". Deseja alterar para qual ?");
+                String newName = scanner.next();
+                pet.setNome(newName);
+            case 2:
+                System.out.println("O gênero atual do pet é " + pet.getGenero() + ". Deseja alterar para qual ?");
+                String newGender = scanner.next();
+                pet.setGenero(newGender);
+            case 3:
+                System.out.println("O porte atual do pet é " + pet.getPorte() + ". Deseja alterar para qual ?");
+                String newPorte = scanner.next();
+                pet.setPorte(newPorte);
+        }
     }
 
     public int getIdUser() {
@@ -68,7 +73,7 @@ public class User {
     }
 
     public String getNome() {
-        return nome;
+        return this.nome;
     }
 
     public int getCpf() {
@@ -87,12 +92,20 @@ public class User {
         return telefone;
     }
 
-    public String getDataNasc() {
+    public Date getDataNasc() {
         return dataNasc;
     }
 
     public String getGenero() {
         return genero;
+    }
+
+    public List<Pets> getListapets() {
+        return listapets;
+    }
+
+    public Endereco getEnd() {
+        return end;
     }
 
     public void setEmail(String email) {
@@ -103,7 +116,7 @@ public class User {
         this.telefone = telefone;
     }
 
-    public void setDataNasc(String dataNasc) {
+    public void setDataNasc(Date dataNasc) {
         this.dataNasc = dataNasc;
     }
 
