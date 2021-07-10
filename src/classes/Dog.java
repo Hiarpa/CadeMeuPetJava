@@ -7,8 +7,8 @@ public class Dog extends Pets{
     private String cor;
     private String pelo;
 
-    public Dog(int idPets, String nome, String tipo, String imagem, String genero, boolean status_A, boolean status_P, String porte, String localP, String localA, String dataA, String raca, String cor, String pelo) {
-        super(idPets, nome, tipo, imagem, genero, status_A, status_P, porte, localP, localA, dataA);
+    public Dog(int idPets, String nome, String tipo, String imagem, String genero, String status, String porte, String localP, String localA, String dataA, String raca, String cor, String pelo) {
+        super(idPets, nome, tipo, imagem, genero, status, porte, localP, localA, dataA);
         this.raca = raca;
         this.cor = cor;
         this.pelo = pelo;

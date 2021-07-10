@@ -40,7 +40,13 @@ public class User {
 
     public void verListaPets(){
         for(Pets valor: listapets){
-            System.out.println(listapets);
+            for(int i = 0; i < listapets.size(); i++){
+                System.out.println("Nome: " + valor.getNome() + "\n"+
+                        "Status: " + valor.getStatus() + "\n" +
+                        "Local Achado: " + valor.getLocalA() + "\n" +
+                        "Data em que foi achado: " + valor.getDataA() + "\n" +
+                        "Imagem: " + valor.getImagem());
+            }
         }
     }
 
