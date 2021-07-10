@@ -1,5 +1,6 @@
 package classes;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public abstract class Pets  {
@@ -12,9 +13,13 @@ public abstract class Pets  {
     private String porte;
     private String localP;
     private String localA;
-    private String dataA;
+    private Date dataA;
+    private Date dataP;
 
-    public Pets(int idPets, String nome, String tipo, String imagem, String genero, String status, String porte, String localP, String localA, String dataA) {
+    SimpleDateFormat formatar = new SimpleDateFormat("d/M/y");
+
+
+    public Pets(int idPets, String nome, String tipo, String imagem, String genero, String status, String porte, String localP, String localA, Date dataA, Date dataP) {
         this.idPets = idPets;
         this.nome = nome;
         this.tipo = tipo;
@@ -25,6 +30,7 @@ public abstract class Pets  {
         this.localP = localP;
         this.localA = localA;
         this.dataA = dataA;
+        this.dataP = dataP;
     }
 
     @Override
@@ -39,15 +45,22 @@ public abstract class Pets  {
                 ", porte='" + porte + '\'' +
                 ", localP='" + localP + '\'' +
                 ", localA='" + localA + '\'' +
-                ", dataA='" + dataA + '\'' +
+                ", dataA=" + dataA +
+                ", dataP=" + dataP +
                 '}';
     }
 
     public void verifica_tipo(){
+        //getTipo() == instancia.
         return;
     }
 
-    public void verificar_status(){return;}
+    public void verificar_status(){
+        System.out.println("Status do pet: " + getStatus());
+        System.out.println("Local perdido: " + getLocalP());
+        System.out.println("Local achado: " + getLocalA());
+        return;
+    }
 
     public int getIdPets() {
         return idPets;
@@ -86,7 +99,11 @@ public abstract class Pets  {
     }
 
     public String getDataA() {
-        return dataA;
+        return formatar.format(dataA);
+    }
+
+    public String getDataP() {
+        return formatar.format(dataP);
     }
 
     public void setNome(String nome) {
@@ -116,4 +133,5 @@ public abstract class Pets  {
     public void setLocalA(String localA) {
         this.localA = localA;
     }
+
 }

@@ -1,5 +1,6 @@
 package classes;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -16,6 +17,8 @@ public class User {
     private String genero;
     private List<Pets> listapets;
     private Endereco end;
+
+    SimpleDateFormat formatar = new SimpleDateFormat("d/M/y");
 
     public User(int idUser, String nome, int cpf, String email, String senha, int telefone, Date dataNasc, String genero,Endereco end) {
         this.idUser = idUser;
@@ -40,12 +43,14 @@ public class User {
 
     public void verListaPets(){
         for(Pets valor: listapets){
-            for(int i = 0; i < listapets.size(); i++){
+            for(int i = 1; i < listapets.size(); i++){
                 System.out.println("Nome: " + valor.getNome() + "\n"+
                         "Status: " + valor.getStatus() + "\n" +
                         "Local Achado: " + valor.getLocalA() + "\n" +
+                        "Local Perdido: " + valor.getLocalP() + "\n" +
                         "Data em que foi achado: " + valor.getDataA() + "\n" +
-                        "Imagem: " + valor.getImagem());
+                        "Data em que foi perdido: " + valor.getDataP() + "\n" +
+                        "Imagem: " + valor.getImagem() + "\n" );
             }
         }
     }
@@ -98,8 +103,8 @@ public class User {
         return telefone;
     }
 
-    public Date getDataNasc() {
-        return dataNasc;
+    public String getDataNasc() {
+        return formatar.format(dataNasc);
     }
 
     public String getGenero() {
