@@ -20,7 +20,7 @@ public class User {
 
     SimpleDateFormat formatar = new SimpleDateFormat("d/M/y");
 
-    public User(int idUser, String nome, int cpf, String email, String senha, int telefone, Date dataNasc, String genero,Endereco end) {
+    public User(int idUser, String nome, int cpf, String email, String senha, int telefone, Date dataNasc, String genero) {
         this.idUser = idUser;
         this.nome = nome;
         this.cpf = cpf;
@@ -30,7 +30,6 @@ public class User {
         this.dataNasc = dataNasc;
         this.genero = genero;
         this.listapets = new ArrayList<>();
-        this.end = end;
     }
 
     public void addPet(Pets pet){
@@ -133,6 +132,10 @@ public class User {
 
     public void setGenero(String genero) {
         this.genero = genero;
+    }
+
+    public void setEnd(Endereco end) {
+        this.end = end;
     }
 }
 
