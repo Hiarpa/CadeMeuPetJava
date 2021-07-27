@@ -13,14 +13,14 @@ public class User {
     private String email;
     private String senha;
     private int telefone;
-    private Date dataNasc;
+    private java.sql.Date dataNasc;
     private String genero;
     private List<Pets> listapets;
     private Endereco end;
 
-    SimpleDateFormat formatar = new SimpleDateFormat("d/M/y");
+    //SimpleDateFormat formatar = new SimpleDateFormat("d/M/y");
 
-    public User(int idUser, String nome, int cpf, String email, String senha, int telefone, Date dataNasc, String genero) {
+    public User(int idUser, String nome, int cpf, String email, String senha, int telefone, java.sql.Date dataNasc, String genero) {
         this.idUser = idUser;
         this.nome = nome;
         this.cpf = cpf;
@@ -102,8 +102,9 @@ public class User {
         return telefone;
     }
 
-    public String getDataNasc() {
-        return formatar.format(dataNasc);
+    public java.sql.Date getDataNasc() {
+        //return formatar.format(dataNasc);
+        return dataNasc;
     }
 
     public String getGenero() {
@@ -126,7 +127,7 @@ public class User {
         this.telefone = telefone;
     }
 
-    public void setDataNasc(Date dataNasc) {
+    public void setDataNasc(java.sql.Date dataNasc) {
         this.dataNasc = dataNasc;
     }
 

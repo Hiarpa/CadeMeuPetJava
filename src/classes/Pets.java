@@ -13,17 +13,16 @@ public abstract class Pets  {
     private String porte;
     private String localP;
     private String localA;
-    private Date dataA;
-    private Date dataP;
+    private java.sql.Date dataA;
+    private java.sql.Date dataP;
 
     SimpleDateFormat formatar = new SimpleDateFormat("d/M/y");
 
 
-    public Pets(int idPets, String nome, String tipo, String imagem, String genero, String status, String porte, String localP, String localA, Date dataA, Date dataP) {
+    public Pets(int idPets, String nome, String tipo, String genero, String status, String porte, String localP, String localA, java.sql.Date dataA, java.sql.Date dataP) {
         this.idPets = idPets;
         this.nome = nome;
         this.tipo = tipo;
-        this.imagem = imagem;
         this.genero = genero;
         this.status = status;
         this.porte = porte;
@@ -39,7 +38,6 @@ public abstract class Pets  {
                 "idPets=" + idPets +
                 ", nome='" + nome + '\'' +
                 ", tipo='" + tipo + '\'' +
-                ", imagem='" + imagem + '\'' +
                 ", genero='" + genero + '\'' +
                 ", status='" + status + '\'' +
                 ", porte='" + porte + '\'' +
@@ -98,12 +96,12 @@ public abstract class Pets  {
         return localA;
     }
 
-    public String getDataA() {
-        return formatar.format(dataA);
+    public java.sql.Date getDataA() {
+        return dataA;
     }
 
-    public String getDataP() {
-        return formatar.format(dataP);
+    public java.sql.Date getDataP() {
+        return dataP;
     }
 
     public void setNome(String nome) {
